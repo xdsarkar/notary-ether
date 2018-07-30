@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Blockchain File Certification</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="jumbotron">
+		<h3 class="display-4">Ethereum Blockchain</h3>
+		<p class="lead">File Notarization with Ethereum Blockchain (*.any)</p>
+		<hr class="my-4">
+		<p>Store the hashes of your file on the <b>Eth Blockchain</b>, and you can verify it anytime.</p>
+		<hr class="my-4">
+		<!-- <div class="container"> -->
+			<div class="row">
+				<div class="col-sm">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">Wallet Address (Hex)</span>
+						</div>
+						<input id="inValue" type="text" class="form-control" placeholder="Sign, document" aria-label="Owner" aria-describedby="basic-addon1">
+					</div>	  
+					<div class="custom-file">
+						<input type="file" id="hashFile" type="file" class="custom-file-input" onchange="$('#changeText').html(this.files[0].name)">
+						<span class="custom-file-control" data-content="Choose file..." style="white-space: nowrap"></span>
+						<label id="changeText" class="custom-file-label" for="hashFile" style="overflow: hidden">Choose file...</label>
+					</div>
+					<hr class="my-4">	
+					<button type='button' id="sendHashButton" onclick="send()" class="btn btn-primary btn-md btn-block">Fingerprint Hash to Blockchain</button>
+					<button type='button' id= "findHashButton" onclick="find()" class="btn btn-secondary btn-md btn-block">Find Hash on Blockchain</button>
+				</div>
+			</div>
+		<!-- </div> -->
+	</div>
+	<div class="container-fluid">
+		<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="basic-addon1">Wallet Address of New Owner (Hex)</span>
+				</div>
+				<input id="newValue" type="text" class="form-control" placeholder="Sign, document" aria-label="newOwner" aria-describedby="basic-addon1">
+		</div>
+		<hr class="my-4">
+		<button type='button' id="deleteHashButton" onclick="transfer()" class="btn btn-primary btn-md btn-block">Transfer Ownership</button>
+		<hr class="my-4">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon1">Wallet Address of Owner (Hex)</span>
+			</div>
+			<input id="getDocs" type="text" class="form-control" placeholder="Document Owner" aria-label="newOwner" aria-describedby="basic-addon1">
+	</div>
+	<div class="text-center">
+			<table id='table' class="table table-hover"></table>
+	</div>
+	<button type='button' id="showHashButton" onclick="listing()" class="btn btn-primary btn-md btn-block">Document Hashes by Owner</button>
+	<hr class="my-4">
+	<div id=responseText class="alert alert-success" role="alert">
+	</div>
+	<div id=errorText class="alert alert-danger" role="alert"></div>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="sha256.js"></script>
+	<script src="ipfs.js"></script>
+	<script src="web3.min.js"></script>
+	<script src="notaryWebLib.js"></script>
+	<script src="app.js"></script>
+
+</body>
+</html>
